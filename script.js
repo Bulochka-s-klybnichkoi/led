@@ -1,6 +1,7 @@
 var picker = document.getElementsByClassName("picker")[0];
-var nextButton = document.getElementsByClassName("continue")[0];
 var color;
+var colors = {};
+
 
 function convertColor(color) {
    /* Check for # infront of the value, if it's there, strip it */
@@ -13,14 +14,57 @@ function convertColor(color) {
    rgbColor.G = parseInt(color.substring(2,4),16);
    rgbColor.B = parseInt(color.substring(4), 16);
    return rgbColor;
- }
+}
 
-function next() {
+function findResult() {
    color = picker.value;
    var color2 = convertColor(color);
    Red = Math.floor(color2.R / 10);
    Green = Math.floor(color2.G / 10);
    Blue = Math.floor(color2.B / 10);
    var result = `Red:${Red}, Green:${Green}, Blue:${Blue}.`;
-   alert(result);
+   return result;
 }
+
+function next() {
+   document.getElementsByClassName("color")[0].textContent = findResult();
+   document.getElementsByClassName("name")[0].style.display = "block";
+   document.getElementsByClassName("gavno")[0].style.display = "block";
+   localStorage.setItem("showSuceedText", false);
+   updateSuceedText();
+}
+
+function saveColor() {
+   if (document.getElementsByClassName("name")[0].value !== "") {
+      localStorage.setItem(document.getElementsByClassName("name")[0].value, findResult());
+      localStorage.setItem("showSuceedText", true);
+      location.reload();
+   }
+   else {
+      document.getElementsByClassName("name")[0].placeholder = "Please type a name.";
+   }  
+}
+
+function findColor() {
+   if (document.getElementsByClassName("request")[0].value !== "") {
+      if (localStorage.getItem(document.getElementsByClassName("request")[0].value) !== null) {
+         document.getElementsByClassName("result")[0].textContent = localStorage.getItem(document.getElementsByClassName("request")[0].value);
+      }
+   }
+   else {
+      document.getElementsByClassName("request")[0].placeholder = "Please type a name.";
+   }
+}
+
+function updateSuceedText() {
+   if (localStorage.getItem("showSuceedText") == "true") {
+      document.getElementsByClassName("suceed")[0].style.display = "block";
+   }
+   else {
+      document.getElementsByClassName("suceed")[0].style.display = "none";
+   }
+}
+updateSuceedText();
+
+
+"нащо ви його купили якщо ви з ним не розмовляете"

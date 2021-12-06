@@ -5,10 +5,23 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <input type="color" class="picker">
-   <button class="continue" onclick="next()">Continue</button>
+   <form action="" onsubmit="return false">
+      <input type="color" class="picker">
+      <button class="continue" onclick="next()">Continue</button>
+      <p class="color"></p>
+      <input type="text" class="name" placeholder="Color name">
+      <input type="submit" class="gavno" value="Save Color" onclick="saveColor()">
+      <p class="suceed">Sucessfully saved color!</p>
+   </form>
+   <form action="" onsubmit="return false">
+      <h2>Get your color</h2>
+      <input type="text" class="request" placeholder="Color name">
+      <input type="submit" class="find" value="Find Color" onclick="findColor()">
+      <p class="result"></p>
+   </form>
    <script src="script.js"></script>
 </body>
 </html>

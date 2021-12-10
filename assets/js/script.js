@@ -1,4 +1,4 @@
-var picker = document.getElementsByClassName("picker")[0];
+var picker = document.getElementsByClassName("saving-picker")[0];
 var color;
 var colors = {};
 
@@ -27,21 +27,21 @@ function findResult() {
 }
 
 function next() {
-   document.getElementsByClassName("color")[0].textContent = findResult();
-   document.getElementsByClassName("name")[0].style.display = "block";
-   document.getElementsByClassName("gavno")[0].style.display = "block";
+   document.getElementsByClassName("saving-result")[0].textContent = findResult();
+   document.getElementsByClassName("saving-nameinput")[0].style.display = "block";
+   document.getElementsByClassName("saving-save")[0].style.display = "block";
    localStorage.setItem("showSuceedText", false);
    updateSuceedText();
 }
 
 function saveColor() {
-   if (document.getElementsByClassName("name")[0].value !== "") {
-      localStorage.setItem(document.getElementsByClassName("name")[0].value, findResult());
+   if (document.getElementsByClassName("saving-nameinput")[0].value !== "") {
+      localStorage.setItem(document.getElementsByClassName("saving-nameinput")[0].value, findResult());
       localStorage.setItem("showSuceedText", true);
       location.reload();
    }
    else {
-      document.getElementsByClassName("name")[0].placeholder = "Please type a name.";
+      document.getElementsByClassName("saving-nameinput")[0].placeholder = "Please type a name.";
    }  
 }
 
@@ -58,10 +58,10 @@ function findColor() {
 
 function updateSuceedText() {
    if (localStorage.getItem("showSuceedText") == "true") {
-      document.getElementsByClassName("suceed")[0].style.display = "block";
+      document.getElementsByClassName("saving-suceedtext")[0].style.display = "block";
    }
    else {
-      document.getElementsByClassName("suceed")[0].style.display = "none";
+      document.getElementsByClassName("saving-suceedtext")[0].style.display = "none";
    }
 }
 updateSuceedText();

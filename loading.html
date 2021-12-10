@@ -27,13 +27,11 @@
          </ul>
       </nav>
    </header>
-   <form class="saving" action="" onsubmit="return false">
-      <input type="color" class="saving-picker" value="#c4ac38">
-      <button class="saving-continue" onclick="next()">Continue</button>
-      <p class="saving-result"></p>
-      <input type="text" class="saving-nameinput" placeholder="Color name">
-      <input type="submit" class="saving-save" value="Save Color" onclick="saveColor()">
-      <p class="saving-suceedtext">Sucessfully saved color!</p>
+   <form class="loading" action="" onsubmit="return false">
+      <h2>Get your color</h2>
+      <input type="text" class="loading-request" placeholder="Color name">
+      <input type="submit" class="loading-find" value="Find Color" onclick="findColor()">
+      <p class="loading-result"></p>
    </form>
    <script src="assets/js/script.js"></script>
 </body>

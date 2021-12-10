@@ -1,0 +1,117 @@
+* {
+  font-family: "Fuzzy Bubbles";
+  transition: 500ms ease;
+}
+
+*:hover {
+  transition: 500ms ease;
+}
+
+*:hover::after {
+  transition: 600ms ease;
+}
+
+*::after {
+  transition: 600ms ease;
+}
+
+:root {
+  --headerBgColor: #ff0095;
+}
+
+header {
+  background-color: var(--headerBgColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-logo {
+  width: 70px;
+  height: 70px;
+  margin-left: -270px;
+  transform: rotate(-360deg);
+  transition: 3s transform 3.5s width 3.5s height cubic-bezier(0, 0, 0.29, 1.31);
+}
+
+.header-logo:hover {
+  transform: rotate(300deg);
+  transition: transform 3s width 3.5s height 3.5s cubic-bezier(0, 0, 0.29, 1.31);
+  width: 80px;
+  height: 80px;
+}
+
+.header-nav {
+  margin-left: -415px;
+}
+
+.header-nav-pages {
+  display: flex;
+  justify-content: center;
+  height: 65px;
+  align-items: center;
+}
+
+.header-nav-pages-item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.header-nav-pages-item-link {
+  color: #ffffff;
+  position: relative;
+  font-size: 19px;
+}
+
+.header-nav-pages-item-link::after {
+  content: "";
+  height: 5px;
+  display: block;
+  position: absolute;
+  margin-top: calc(9 / 1920 * 100vw);
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0;
+  width: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 2%,
+    rgba(255, 111, 1, 1) 13%,
+    rgba(255, 239, 1, 1) 32%,
+    rgba(105, 255, 1, 1) 48%,
+    rgba(1, 237, 255, 1) 66%,
+    rgba(1, 96, 255, 1) 82%,
+    rgba(145, 1, 255, 1) 95%
+  );
+  -webkit-box-shadow: 0px 0px 14px 6px rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0px 0px 14px 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0px 0px 14px 6px rgba(255, 255, 255, 0.8);
+}
+
+.header-nav-pages-item-link:hover::after {
+  opacity: 1;
+  width: 100%;
+  transition: width 500ms ease-in;
+}
+
+.saving,
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.saving-picker {
+  width: 900px;
+  display: block;
+  margin: auto;
+  height: 350px;
+}
+
+.saving-nameinput,
+.saving-save,
+.saving-suceedtext {
+  display: none;
+}

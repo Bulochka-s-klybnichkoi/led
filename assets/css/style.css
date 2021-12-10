@@ -1,6 +1,6 @@
 * {
   font-family: "Fuzzy Bubbles";
-  transition: 500ms ease;
+  transition: 100000000ms ease;
 }
 
 *:hover {
@@ -19,11 +19,18 @@
   --headerBgColor: #ff0095;
 }
 
+body {
+  background: url(../img/bg.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 header {
   background-color: var(--headerBgColor);
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 30px;
 }
 
 .header-logo {
@@ -101,6 +108,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .saving-picker {
@@ -108,6 +116,45 @@ header {
   display: block;
   margin: auto;
   height: 350px;
+  margin-bottom: 20px;
+}
+
+.saving-continue {
+  width: 300px;
+  color: white;
+  background: var(--headerBgColor);
+  border-radius: 200px;
+  height: 100px;
+  font-size: 40px;
+}
+
+.saving-continue:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 2%,
+    rgba(255, 111, 1, 1) 13%,
+    rgba(255, 239, 1, 1) 32%,
+    rgba(105, 255, 1, 1) 48%,
+    rgba(1, 237, 255, 1) 66%,
+    rgba(1, 96, 255, 1) 82%,
+    rgba(145, 1, 255, 1) 95%
+  );
+  
+  /* Set the background size and repeat properties. */
+  background-size: 110%;
+  background-repeat: repeat;
+  background-position: top right;
+  -webkit-text-stroke: rgb(255, 255, 255) 1px;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+
+  
+  animation: button-animation 0.65s 0.15s ease-out forwards;
 }
 
 .saving-nameinput,
